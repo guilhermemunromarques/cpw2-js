@@ -5,7 +5,7 @@
  * @param {*} people : Um array contendo um conjunto de nomes
  * @returns Um array com os nomes invertidos
  */
-function invert(people){
+ function invert(people){
 
     // TODO
     // 1) Peça ao usuário para digitar vários nomes. Exiba na tela
@@ -13,7 +13,7 @@ function invert(people){
     // Uma dica, você pode utilizar a função prompt para permitir que o usuário digite os
     // nomes dos usuários.
 
-    return [];
+    return people.reverse();
 }
 
 /**
@@ -29,7 +29,11 @@ function mean(grades){
     // o nome do aluno, sua média e se ele foi aprovado, sabendo-se que a média para aprovação é igual
     // ou superior a 7.
 
-    return 0;
+    let soma = 0;
+    for(let i = 0; i < 3; i++){
+        soma += grades[i];
+    }
+    return (soma/3);
 }
 
 /**
@@ -45,7 +49,11 @@ function isApproved(mean){
     // o nome do aluno, sua média e se ele foi aprovado, sabendo-se que a média para aprovação é igual
     // ou superior a 7.
 
-    return "";
+    if(mean < 7){
+        return "reprovado";
+    }else{
+        return "aprovado";
+    }
 }
 
 /**
@@ -62,7 +70,28 @@ function wide(strDate){
     // “split” de uma string que quebra a string em pedaços dado um separador como argumento da função.
     // Nesse caso, o separador é a barra (/) da data.
 
-    return "";
+    if(!strDate.includes('/')) return newDate = "";
+
+    let dateArray = strDate.split("/");
+    let mes = dateArray[1];
+    switch(mes){
+        case "01": mes = "janeiro"; break;
+        case "02": mes = "fevereiro"; break;
+        case "03": mes = "março"; break;
+        case "04": mes = "abril"; break;
+        case "05": mes = "maio"; break;
+        case "06": mes = "junho"; break;
+        case "07": mes = "julho"; break;
+        case "08": mes = "agosto"; break;
+        case "09": mes = "setembro"; break;
+        case "10": mes = "outubro"; break;
+        case "11": mes = "novembro"; break;
+        case "12": mes = "dezembro"; break;
+        default: return "";
+    }
+
+    let newDate = dateArray[0] + " de " + mes + " de " + dateArray[2];
+    return newDate;
 }
 
 // Trecho utilizado pelos testes
